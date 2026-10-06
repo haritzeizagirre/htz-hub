@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image, ActivityIndicator } from 'react-native';
 import {
   Trophy,
   Terminal,
@@ -8,13 +8,16 @@ import {
   Layers,
   Star,
   ChevronRight,
+  Download,
+  RefreshCw,
+  AlertTriangle,
 } from 'lucide-react-native';
-import { IntegratedAppManifest } from '../types';
+import { AppInstallState, LauncherApp } from '../types';
 import { useHub } from '../context/HubContext';
-import { HtzCard, HtzBadge, HtzButton, htzTokens } from './htz';
+import { HtzCard, HtzBadge, htzTokens } from './htz';
 
 interface AppCardProps {
-  app: IntegratedAppManifest;
+  app: LauncherApp;
   onPress: () => void;
 }
 
@@ -33,12 +36,36 @@ const renderAppIcon = (iconName: string, color: string, size: number = 24) => {
   }
 };
 
+const ACTION_LABELS: Record<AppInstallState, string> = {
+  'not-installed': 'Descargar',
+  installed: 'Abrir',
+  'update-available': 'Actualizar',
+  installing: 'Instalando…',
+  incompatible: 'No compatible',
+};
+
 export const AppCard: React.FC<AppCardProps> = ({ app, onPress }) => {
-  const { colors, isFavorite, toggleFavorite } = useHub();
+  const { colors, isFavorite, toggleFavorite, appStates, appIcons } = useHub();
   const fav = isFavorite(app.id);
 
+  // Las apps internas siempre están "listas"; las externas dependen del estado.
+  const state: AppInstallState =
+    app.source === 'external' ? appStates[app.id] ?? 'not-installed' : 'installed';
+  const disabled = state === 'installing' || state === 'incompatible';
+  const realIcon = appIcons[app.id];
+
+  const renderActionIcon = () => {
+    if (state === 'installing') {
+      return <ActivityIndicator size="small" color={app.accentColor} />;
+    }
+    if (state === 'not-installed') return <Download size={16} color={app.accentColor} />;
+    if (state === 'update-available') return <RefreshCw size={16} color={app.accentColor} />;
+    if (state === 'incompatible') return <AlertTriangle size={16} color={colors.textMuted} />;
+    return <ChevronRight size={16} color={app.accentColor} />;
+  };
+
   return (
-    <HtzCard elevated onPress={onPress} style={styles.card}>
+    <HtzCard elevated onPress={disabled ? undefined : onPress} style={styles.card}>
       <View style={styles.topRow}>
         <View
           style={[
@@ -46,11 +73,22 @@ export const AppCard: React.FC<AppCardProps> = ({ app, onPress }) => {
             { backgroundColor: `${app.accentColor}20` },
           ]}
         >
-          {renderAppIcon(app.icon, app.accentColor, 26)}
+          {realIcon ? (
+            <Image source={{ uri: realIcon }} style={styles.realIcon} resizeMode="contain" />
+          ) : (
+            renderAppIcon(app.icon, app.accentColor, 26)
+          )}
         </View>
 
         <View style={styles.badgeRow}>
-          {app.badge && (
+          {app.source === 'builtin' && (
+            <HtzBadge
+              variant="success"
+              label="INTEGRADA"
+              style={{ backgroundColor: `${app.accentColor}20` }}
+            />
+          )}
+          {app.badge && app.source !== 'builtin' && (
             <HtzBadge
               variant="success"
               label={app.badge}
@@ -77,9 +115,11 @@ export const AppCard: React.FC<AppCardProps> = ({ app, onPress }) => {
           <Text style={[styles.appName, { color: colors.textPrimary }]}>
             {app.name}
           </Text>
-          <Text style={[styles.appVersion, { color: colors.textMuted }]}>
-            v{app.version}
-          </Text>
+          {app.version && (
+            <Text style={[styles.appVersion, { color: colors.textMuted }]}>
+              v{app.version}
+            </Text>
+          )}
         </View>
 
         <Text style={[styles.subtitle, { color: app.accentColor }]}>
@@ -102,10 +142,15 @@ export const AppCard: React.FC<AppCardProps> = ({ app, onPress }) => {
         </View>
 
         <View style={styles.openAction}>
-          <Text style={[styles.openActionText, { color: app.accentColor }]}>
-            Abrir App
+          <Text
+            style={[
+              styles.openActionText,
+              { color: state === 'incompatible' ? colors.textMuted : app.accentColor },
+            ]}
+          >
+            {ACTION_LABELS[state]}
           </Text>
-          <ChevronRight size={16} color={app.accentColor} />
+          {renderActionIcon()}
         </View>
       </View>
     </HtzCard>
@@ -128,6 +173,12 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     alignItems: 'center',
     justifyContent: 'center',
+    overflow: 'hidden',
+  },
+  realIcon: {
+    width: 40,
+    height: 40,
+    borderRadius: 10,
   },
   badgeRow: {
     flexDirection: 'row',
@@ -182,7 +233,7 @@ const styles = StyleSheet.create({
   openAction: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 2,
+    gap: 4,
   },
   openActionText: {
     fontSize: 13,

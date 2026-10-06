@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { Trophy, Terminal, Wrench, Activity, Layers, History } from 'lucide-react-native';
-import { IntegratedAppManifest } from '../types';
+import { LauncherApp } from '../types';
 import { useHub } from '../context/HubContext';
 
 interface RecentAppsTrayProps {

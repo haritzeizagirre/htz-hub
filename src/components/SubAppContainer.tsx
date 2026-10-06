@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, StyleSheet, StatusBar } from 'react-native';
-import { IntegratedAppManifest } from '../types';
+import { LauncherApp } from '../types';
 import { useHub } from '../context/HubContext';
 import { HubStorage } from '../storage/hubStorage';
 
 interface SubAppContainerProps {
-  app: IntegratedAppManifest;
+  app: LauncherApp;
 }
 
 export const SubAppContainer: React.FC<SubAppContainerProps> = ({ app }) => {
@@ -13,6 +13,10 @@ export const SubAppContainer: React.FC<SubAppContainerProps> = ({ app }) => {
   const appStorage = HubStorage.getAppStorage(app.id);
 
   const RootComponent = app.rootComponent;
+
+  if (!RootComponent) {
+    return null;
+  }
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>

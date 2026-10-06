@@ -6,8 +6,8 @@ import { AppRegistry } from '../apps/registry';
 import { AppCard } from '../components/AppCard';
 
 export const FavoritesScreen: React.FC = () => {
-  const { colors, favorites, launchApp } = useHub();
-  const favApps = AppRegistry.getFavorites(favorites);
+  const { colors, favorites, launchApp, catalog } = useHub();
+  const favApps = AppRegistry.getFavorites(favorites, catalog);
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>

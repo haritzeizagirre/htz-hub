@@ -11,6 +11,7 @@
     },
     "android": {
       "package": "com.haritz.hubapp",
+      "permissions": ["REQUEST_INSTALL_PACKAGES", "QUERY_ALL_PACKAGES"],
       "adaptiveIcon": {
         "backgroundColor": "#1E2420",
         "foregroundImage": "./assets/android-icon-foreground.png",

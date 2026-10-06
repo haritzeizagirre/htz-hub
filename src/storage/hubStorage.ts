@@ -5,6 +5,7 @@ const HUB_KEYS = {
   THEME: '@hub_theme_mode',
   FAVORITES: '@hub_favorites_list',
   RECENTS: '@hub_recent_apps_list',
+  INSTALLED_VERSIONS: '@hub_installed_versions',
 };
 
 export const HubStorage = {
@@ -64,6 +65,26 @@ export const HubStorage = {
       return updated;
     } catch {
       return [];
+    }
+  },
+
+  // Installed external apps (version recorded at install time by the Hub)
+  async getInstalledVersions(): Promise<Record<string, string>> {
+    try {
+      const val = await AsyncStorage.getItem(HUB_KEYS.INSTALLED_VERSIONS);
+      return val ? JSON.parse(val) : {};
+    } catch {
+      return {};
+    }
+  },
+
+  async setInstalledVersion(appId: string, version: string): Promise<void> {
+    try {
+      const current = await this.getInstalledVersions();
+      current[appId] = version;
+      await AsyncStorage.setItem(HUB_KEYS.INSTALLED_VERSIONS, JSON.stringify(current));
+    } catch (err) {
+      console.warn('Error guardando versión instalada:', err);
     }
   },
 

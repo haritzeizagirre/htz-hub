@@ -10,12 +10,12 @@ import { AppCategory } from '../types';
 import { SearchX } from 'lucide-react-native';
 
 export const HomeScreen: React.FC = () => {
-  const { colors, launchApp } = useHub();
+  const { colors, launchApp, catalog } = useHub();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<AppCategory>('todas');
 
-  const apps = AppRegistry.filter(searchQuery, selectedCategory);
-  const totalAppsCount = AppRegistry.getAll().length;
+  const apps = AppRegistry.filter(searchQuery, selectedCategory, catalog);
+  const totalAppsCount = AppRegistry.getAll(catalog).length;
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>

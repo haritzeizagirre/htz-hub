@@ -1,24 +1,58 @@
-import { IntegratedAppManifest, AppCategory } from '../types';
-import { ScoreViewerManifest } from './score-viewer/manifest';
+import { IntegratedAppManifest, LauncherApp, CatalogApp, AppCategory } from '../types';
 import { DemoToolManifest } from './demo-tool/manifest';
 
-export const INTEGRATED_APPS: IntegratedAppManifest[] = [
-  ScoreViewerManifest,
-  DemoToolManifest,
+/**
+ * Apps integradas en el propio Hub (se renderizan en proceso).
+ * Score Viewer ya NO está aquí: es una app externa descargable.
+ */
+export const INTEGRATED_APPS: IntegratedAppManifest[] = [DemoToolManifest];
+
+const builtinToLauncher = (manifest: IntegratedAppManifest): LauncherApp => ({
+  id: manifest.id,
+  name: manifest.name,
+  subtitle: manifest.subtitle,
+  description: manifest.description,
+  icon: manifest.icon,
+  accentColor: manifest.accentColor,
+  category: manifest.category,
+  badge: manifest.badge,
+  version: manifest.version,
+  source: 'builtin',
+  rootComponent: manifest.rootComponent,
+});
+
+const catalogToLauncher = (app: CatalogApp): LauncherApp => ({
+  id: app.id,
+  name: app.name,
+  subtitle: app.subtitle,
+  description: app.description,
+  icon: app.icon,
+  accentColor: app.accentColor,
+  category: app.category,
+  badge: app.badge,
+  version: app.latest.version,
+  source: 'external',
+  catalog: app,
+});
+
+/** Une apps del catálogo (externas) + apps integradas (internas). */
+export const getLauncherApps = (catalog: CatalogApp[] = []): LauncherApp[] => [
+  ...catalog.map(catalogToLauncher),
+  ...INTEGRATED_APPS.map(builtinToLauncher),
 ];
 
 export const AppRegistry = {
-  getAll(): IntegratedAppManifest[] {
-    return INTEGRATED_APPS;
+  getAll(catalog: CatalogApp[] = []): LauncherApp[] {
+    return getLauncherApps(catalog);
   },
 
-  getById(id: string): IntegratedAppManifest | undefined {
-    return INTEGRATED_APPS.find((app) => app.id === id);
+  getById(id: string, catalog: CatalogApp[] = []): LauncherApp | undefined {
+    return getLauncherApps(catalog).find((app) => app.id === id);
   },
 
-  filter(query: string = '', category: AppCategory = 'todas'): IntegratedAppManifest[] {
+  filter(query: string = '', category: AppCategory = 'todas', catalog: CatalogApp[] = []): LauncherApp[] {
     const q = query.toLowerCase().trim();
-    return INTEGRATED_APPS.filter((app) => {
+    return getLauncherApps(catalog).filter((app) => {
       const matchesCategory = category === 'todas' || app.category === category;
       const matchesQuery =
         !q ||
@@ -29,14 +63,14 @@ export const AppRegistry = {
     });
   },
 
-  getFavorites(favIds: string[]): IntegratedAppManifest[] {
-    return INTEGRATED_APPS.filter((app) => favIds.includes(app.id));
+  getFavorites(favIds: string[], catalog: CatalogApp[] = []): LauncherApp[] {
+    return getLauncherApps(catalog).filter((app) => favIds.includes(app.id));
   },
 
-  getRecents(recentIds: string[]): IntegratedAppManifest[] {
-    const appsMap = new Map(INTEGRATED_APPS.map((a) => [a.id, a]));
+  getRecents(recentIds: string[], catalog: CatalogApp[] = []): LauncherApp[] {
+    const appsMap = new Map(getLauncherApps(catalog).map((a) => [a.id, a]));
     return recentIds
       .map((id) => appsMap.get(id))
-      .filter((app): app is IntegratedAppManifest => !!app);
+      .filter((app): app is LauncherApp => !!app);
   },
 };
