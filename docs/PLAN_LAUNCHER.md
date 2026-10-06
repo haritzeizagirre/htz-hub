@@ -406,7 +406,11 @@ Flujo del usuario tras cambiar una app:
       Score Viewer `com.haritz.scoreviewer`.
 - [x] Seguridad: eliminado el token real de PandaScore hardcodeado en `ScoreViewerApp.tsx`
       y excluido `score-tracker-gtr3/app-side/config.js` (con `.gitignore` +
-      `config.example.js`). **Pendiente: rotar el token en PandaScore.**
+      `config.example.js`).
+- [x] **Incidente de seguridad:** al hacer `htz-hub` público se detectó el token en el
+      historial antiguo. Se reescribió el historial y se **borró y recreó** `htz-hub` para
+      purgarlo por completo (commit antiguo ahora 404). **Pendiente: rotar el token en
+      PandaScore (obligatorio; el valor debe considerarse comprometido).**
 - [ ] Decidir si se mantiene el proyecto EAS del Hub y se crea uno nuevo para Score Viewer.
 - [ ] Pasar los repos a públicos cuando estén listos.
 
