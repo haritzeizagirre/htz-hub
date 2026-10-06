@@ -102,9 +102,26 @@ if (!apkPath) {
       process.env.ANDROID_SDK_ROOT ||
       path.join(process.env.LOCALAPPDATA || '', 'Android', 'Sdk');
     const env = { ...process.env, ANDROID_HOME: androidHome, ANDROID_SDK_ROOT: androidHome };
+    const androidDir = path.join(app.projectDir, 'android');
+    const stopDaemons = () => {
+      try {
+        run('gradlew.bat --stop', androidDir, env);
+      } catch {
+        /* aún no hay carpeta android o no hay daemon */
+      }
+    };
+    const prebuild = () => run('npx expo prebuild -p android --no-install', app.projectDir, env);
+
     console.log('→ Prebuild + build (gradle assembleRelease)…');
-    run('npx expo prebuild -p android --no-install', app.projectDir, env);
-    run('gradlew.bat assembleRelease --console=plain', path.join(app.projectDir, 'android'), env);
+    stopDaemons();
+    try {
+      prebuild();
+    } catch {
+      console.warn('→ Prebuild falló (posible bloqueo de archivos). Parando daemons y reintentando…');
+      stopDaemons();
+      prebuild();
+    }
+    run('gradlew.bat assembleRelease --console=plain', androidDir, env);
   }
   apkPath = path.join(app.projectDir, 'android', 'app', 'build', 'outputs', 'apk', 'release', 'app-release.apk');
 }
