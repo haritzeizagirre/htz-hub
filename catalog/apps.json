@@ -16,8 +16,8 @@
         "versionCode": 1,
         "publishedAt": "2026-10-06T00:00:00Z",
         "apkUrl": "https://github.com/haritzeizagirre/htz-scoreviewer/releases/download/v2.0.0/htz-scoreviewer-v2.0.0.apk",
-        "size": 0,
-        "sha256": "",
+        "size": 77997256,
+        "sha256": "5228af025f4e33ac8218ff050d82ee7c5262eb30cc6fb01eb71736581481d407",
         "minHubVersion": "1.0.0",
         "changelog": ["Versión inicial independiente extraída del Hub"]
       },
