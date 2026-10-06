@@ -22,7 +22,7 @@ export const CONFIG = {
 
   // ==========================================
   // 3. EQUIPOS Y CLUBES FAVORITOS
-  // Se priorizan con estrella ★ en el reloj
+  // Se priorizan con estrella en el reloj
   // ==========================================
   FAVORITE_TEAMS: ${JSON.stringify(config.favoriteTeams, null, 4)},
 
@@ -34,6 +34,7 @@ export const CONFIG = {
   // ==========================================
   // 5. AJUSTES AVANZADOS DEL RELOJ
   // ==========================================
+  SHOW_ONLY_FAVORITES: true,
   SHOW_UPCOMING: ${config.showUpcoming},
   SHOW_FAVORITE_RECENT_RESULTS: ${config.showFavoriteRecentResults},
   SHOW_TEAM_LOGOS: ${config.showTeamLogos},

@@ -7,7 +7,7 @@ import {
   Alert,
   TouchableOpacity,
 } from 'react-native';
-import { Plus, Trash2, Star, Trophy, Shield } from 'lucide-react-native';
+import { Plus, Trash2, Star, Trophy, Shield, Check } from 'lucide-react-native';
 import {
   HtzCard,
   HtzButton,
@@ -159,7 +159,8 @@ export const FavoritesManagerView: React.FC<FavoritesManagerViewProps> = ({
                 return (
                   <HtzChip
                     key={sug}
-                    label={isAlready ? `✓ ${sug}` : `+ ${sug}`}
+                    label={sug}
+                    icon={isAlready ? <Check size={12} color="#4ADE80" /> : <Plus size={12} color={htzTokens.colors.outline} />}
                     selected={isAlready}
                     variant={isAlready ? 'success' : 'outline'}
                     onPress={isAlready ? undefined : () => handleAddTeam(sug)}

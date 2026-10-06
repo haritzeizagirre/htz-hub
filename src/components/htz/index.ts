@@ -7,3 +7,4 @@ export * from './HtzToggle';
 export * from './HtzInput';
 export * from './HtzTabs';
 export * from './HtzDivider';
+export * from './HtzSelect';
