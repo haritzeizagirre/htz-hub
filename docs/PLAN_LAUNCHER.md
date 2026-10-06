@@ -389,6 +389,11 @@ Flujo del usuario tras cambiar una app:
 - Fuente: `raw.githubusercontent.com/haritzeizagirre/htz-hub/main/catalog/apps.json`.
 - Los APKs se publican como Releases en `haritzeizagirre/htz-scoreviewer` (y los repos de app sucesivos).
 - El Hub lo descarga al arrancar, lo cachea y hace merge con la copia embebida.
+- ⚠️ **Restricción:** un repo **privado** no sirve `raw.githubusercontent.com` ni los assets de
+  Releases por HTTPS anónimo (dan 404). Para que el Hub descargue catálogo/APK, el repo que los
+  aloja debe ser **público** (o el Hub necesitaría un token de GitHub).
+  Opciones: (a) hacer públicos `htz-hub` y el repo de la app; (b) hacer público solo `htz-hub`
+  y publicar allí los APKs, dejando el código de las apps privado.
 
 ---
 
@@ -414,27 +419,27 @@ Flujo del usuario tras cambiar una app:
       `npx expo lint` reporta 9 errores / 53 avisos **heredados** del código original
       (`react-hooks/set-state-in-effect`, imports sin usar). No afectan al runtime;
       pendiente de limpieza en una tarea aparte.
-- [ ] Generar APK (`eas build -p android --profile preview`) e instalar/probar **sin Hub**
-      (requiere cuenta Expo y dispositivo; lo ejecuta el usuario).
+- [x] APK generado en local (`gradlew assembleRelease`, sin cola de EAS) e instalado/probado
+      por el usuario: **funciona sin el Hub**. (La build de EAS quedó en cola; se puede cancelar.)
 - [ ] (Opcional) botón "Importar backup".
 
 
-### Fase 2 — Hub launcher con catálogo local
-- [ ] Definir tipos `CatalogApp` / `AppCatalog`.
-- [ ] Crear `catalog/apps.json` con Score Viewer.
-- [ ] Copiar el catálogo como asset embebido del Hub.
-- [ ] Refactor `registry.ts` para unificar apps internas + externas.
-- [ ] Tarjeta con estados (Descargar / Abrir / Actualizar) y buscador/filtros.
-- [ ] Quitar `score-viewer` del Hub.
+### Fase 2 — Hub launcher con catálogo local  ✅
+- [x] Definir tipos `CatalogApp` / `AppCatalog` (y `LauncherApp` unificado).
+- [x] Crear `catalog/apps.json` con Score Viewer.
+- [x] Catálogo embebido (import JSON) + `CatalogService` con caché y fetch remoto.
+- [x] Refactor `registry.ts` para unificar apps internas (DevLab) + externas (catálogo).
+- [x] Tarjeta con estados (Descargar / Abrir / Actualizar / Instalando / No compatible).
+- [x] Quitar `score-viewer` del Hub.
 
-### Fase 3 — Descarga, instalación y lanzamiento (Android)
-- [ ] Añadir `expo-file-system`, `expo-intent-launcher`, `expo-application`, `expo-crypto`.
-- [ ] Permisos `REQUEST_INSTALL_PACKAGES` y `QUERY_ALL_PACKAGES` en `hub-app/app.json`.
-- [ ] Servicio `installService.ts`: permiso → descarga → verificación → instalador.
-- [ ] Detección con `getApplicationIconAsync`; usar el icono real en la tarjeta.
-- [ ] Lanzar con `openApplication`.
-- [ ] Registrar versión instalada y calcular "Actualizar".
-- [ ] Probar en dispositivo real (no funciona en Expo Go: requiere dev/prod build).
+### Fase 3 — Descarga, instalación y lanzamiento (Android)  ✅ (código; falta probar en dispositivo)
+- [x] Añadir `expo-file-system`, `expo-intent-launcher`, `expo-application`, `expo-crypto`.
+- [x] Permisos `REQUEST_INSTALL_PACKAGES` y `QUERY_ALL_PACKAGES` en `hub-app/app.json`.
+- [x] Servicio `launcherService.ts`: permiso → descarga → instalador (`content://` + MIME APK).
+- [x] Detección con `getApplicationIconAsync`; icono real en la tarjeta.
+- [x] Lanzar con `openApplication` (fallback a deep link `scheme://`).
+- [x] Registrar versión instalada y calcular "Actualizar".
+- [ ] Probar en dispositivo real (requiere rebuild nativo del Hub; en curso).
 
 ### Fase 4 — Publicación y catálogo remoto
 - [ ] `scripts/publish-app.mjs` (build + release + catálogo).
