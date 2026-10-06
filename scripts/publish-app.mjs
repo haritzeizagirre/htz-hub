@@ -24,7 +24,7 @@
  * Node 18+ y que los repos locales estén en el workspace (por defecto, hermanos de htz-hub).
  */
 import { execSync } from 'node:child_process';
-import { readFileSync, writeFileSync, existsSync, mkdtempSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdtempSync, copyFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
@@ -160,13 +160,19 @@ const releaseExists = (() => {
   }
 })();
 
+// gh no renombra el asset de forma fiable con la sintaxis "ruta#nombre" en Windows,
+// así que copiamos el APK a un archivo temporal con el nombre de asset deseado.
+const stagingDir = mkdtempSync(path.join(tmpdir(), 'publish-'));
+const stagedApk = path.join(stagingDir, asset);
+copyFileSync(apkPath, stagedApk);
+
 if (releaseExists) {
   console.log(`→ El release ${tag} ya existe; subiendo asset (--clobber)…`);
-  run(`gh release upload ${tag} "${apkPath}#${asset}" --repo ${app.repo} --clobber`);
+  run(`gh release upload ${tag} "${stagedApk}" --repo ${app.repo} --clobber`);
 } else {
-  const notesFile = path.join(mkdtempSync(path.join(tmpdir(), 'publish-')), 'notes.md');
+  const notesFile = path.join(stagingDir, 'notes.md');
   writeFileSync(notesFile, notes);
-  run(`gh release create ${tag} "${apkPath}#${asset}" --repo ${app.repo} --title "${app.title} ${tag}" --notes-file "${notesFile}"`);
+  run(`gh release create ${tag} "${stagedApk}" --repo ${app.repo} --title "${app.title} ${tag}" --notes-file "${notesFile}"`);
 }
 
 // --- 5) Catálogo ------------------------------------------------------------
