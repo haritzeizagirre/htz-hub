@@ -445,10 +445,12 @@ Flujo del usuario tras cambiar una app:
 - [x] Registrar versión instalada y calcular "Actualizar".
 - [ ] Probar en dispositivo real (requiere rebuild nativo del Hub; en curso).
 
-### Fase 4 — Publicación y catálogo remoto
-- [ ] `scripts/publish-app.mjs` (build + release + catálogo).
-- [ ] Fetch remoto del catálogo + caché + fallback embebido.
-- [ ] Flujo completo: cambio nativo → publish → Hub muestra "Actualizar" → instala.
+### Fase 4 — Publicación y catálogo remoto  ✅ (script listo; flujo en dispositivo pendiente)
+- [x] `scripts/publish-app.mjs`: build local + Release en GitHub + actualización del catálogo.
+      Opciones `--bump`, `--changelog`, `--skip-build`, `--apk`, `--dry-run`. Documentado en
+      `docs/PUBLISHING.md`.
+- [x] Fetch remoto del catálogo + caché + fallback embebido + cache-busting.
+- [ ] Flujo completo en dispositivo: cambio nativo → publish → Hub muestra "Actualizar" → instala.
 - [ ] (Opcional) GitHub Actions para automatizar el publish.
 
 ### Fase 5 — Extras

@@ -43,7 +43,9 @@ export const CatalogService = {
   /** Fuerza una descarga remota; si falla, cae al catálogo local. */
   async refresh(): Promise<AppCatalog> {
     try {
-      const response = await fetch(CATALOG_URL, { headers: { 'Cache-Control': 'no-cache' } });
+      const response = await fetch(`${CATALOG_URL}?t=${Date.now()}`, {
+        headers: { 'Cache-Control': 'no-cache' },
+      });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const json = await response.json();
       if (!isValidCatalog(json)) throw new Error('Catálogo inválido');
