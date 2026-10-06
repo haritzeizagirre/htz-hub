@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-06T00:00:00Z",
+  "apps": [
+    {
+      "id": "score-viewer",
+      "name": "Score Viewer Pro",
+      "subtitle": "Marcadores en vivo & Companion GTR 3",
+      "description": "Visualizador de resultados deportivos y esports en tiempo real con panel de control y sincronización para Amazfit GTR 3.",
+      "icon": "Trophy",
+      "accentColor": "#10B981",
+      "category": "deportes",
+      "badge": "PRINCIPAL",
+      "latest": {
+        "version": "2.0.0",
+        "versionCode": 1,
+        "publishedAt": "2026-10-06T00:00:00Z",
+        "apkUrl": "https://github.com/haritzeizagirre/htz-scoreviewer/releases/download/v2.0.0/htz-scoreviewer-v2.0.0.apk",
+        "size": 0,
+        "sha256": "",
+        "minHubVersion": "1.0.0",
+        "changelog": ["Versión inicial independiente extraída del Hub"]
+      },
+      "android": {
+        "package": "com.haritz.scoreviewer",
+        "scheme": "scoreviewer"
+      }
+    }
+  ]
+}
