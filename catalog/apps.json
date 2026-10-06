@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-06T20:34:27.597Z",
+  "updatedAt": "2026-10-06T20:44:20.007Z",
   "apps": [
     {
       "id": "score-viewer",
@@ -12,15 +12,15 @@
       "category": "deportes",
       "badge": "PRINCIPAL",
       "latest": {
-        "version": "2.0.1",
-        "versionCode": 2,
-        "publishedAt": "2026-10-06T20:34:27.595Z",
-        "apkUrl": "https://github.com/haritzeizagirre/htz-scoreviewer/releases/download/v2.0.1/htz-scoreviewer-v2.0.1.apk",
-        "size": 77762840,
-        "sha256": "7306bcc530469468ab0beb6f807c7b96a5e13ab1f05bd88b28ec3072c2f3f0af",
+        "version": "2.0.2",
+        "versionCode": 3,
+        "publishedAt": "2026-10-06T20:44:20.006Z",
+        "apkUrl": "https://github.com/haritzeizagirre/htz-scoreviewer/releases/download/v2.0.2/htz-scoreviewer-v2.0.2.apk",
+        "size": 77763668,
+        "sha256": "380cfdf87b8995263b87d42cb8d7df65b2d4f4d178cb6b479e9b7ed64b659f37",
         "minHubVersion": "1.0.0",
         "changelog": [
-          "Nuevo icono con la identidad htz"
+          "R6: arregladas las estadisticas (nuevo formato de Gezzly)"
         ]
       },
       "android": {
