@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-06T20:44:20.007Z",
+  "updatedAt": "2026-10-06T20:48:40.608Z",
   "apps": [
     {
       "id": "score-viewer",
@@ -12,15 +12,15 @@
       "category": "deportes",
       "badge": "PRINCIPAL",
       "latest": {
-        "version": "2.0.2",
-        "versionCode": 3,
-        "publishedAt": "2026-10-06T20:44:20.006Z",
-        "apkUrl": "https://github.com/haritzeizagirre/htz-scoreviewer/releases/download/v2.0.2/htz-scoreviewer-v2.0.2.apk",
-        "size": 77763668,
-        "sha256": "380cfdf87b8995263b87d42cb8d7df65b2d4f4d178cb6b479e9b7ed64b659f37",
+        "version": "2.0.3",
+        "versionCode": 4,
+        "publishedAt": "2026-10-06T20:48:40.607Z",
+        "apkUrl": "https://github.com/haritzeizagirre/htz-scoreviewer/releases/download/v2.0.3/htz-scoreviewer-v2.0.3.apk",
+        "size": 77763648,
+        "sha256": "cec7ab92d77385fde5e5190fbe674436fd7668df684934820ad14ba0715fec27",
         "minHubVersion": "1.0.0",
         "changelog": [
-          "R6: arregladas las estadisticas (nuevo formato de Gezzly)"
+          "UI: el header respeta la barra de estado y se quita la flecha de volver al Hub"
         ]
       },
       "android": {
