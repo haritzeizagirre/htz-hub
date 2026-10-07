@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-06T21:16:28.904Z",
+  "updatedAt": "2026-10-07T17:05:00.000Z",
   "apps": [
     {
       "id": "score-viewer",
@@ -12,15 +12,15 @@
       "category": "deportes",
       "badge": "PRINCIPAL",
       "latest": {
-        "version": "2.0.4",
-        "versionCode": 5,
-        "publishedAt": "2026-10-06T21:16:28.903Z",
-        "apkUrl": "https://github.com/haritzeizagirre/htz-scoreviewer/releases/download/v2.0.4/htz-scoreviewer-v2.0.4.apk",
-        "size": 77763652,
-        "sha256": "1d6f581273a26a7bbeb8cbd6f52d23df2309da7fb4e1202136a10e78a2dce350",
+        "version": "2.0.5",
+        "versionCode": 6,
+        "publishedAt": "2026-10-07T17:05:00.000Z",
+        "apkUrl": "https://github.com/haritzeizagirre/htz-scoreviewer/releases/download/v2.0.5/htz-scoreviewer-v2.0.5.apk",
+        "size": 77788636,
+        "sha256": "91f2aa49a8e32d8a625f378e654223c49fccf75ccf6e6f372f5949e210e2c381",
         "minHubVersion": "1.0.0",
         "changelog": [
-          "R6: corregido el soft-404 de Gezzly; ahora localiza los partidos"
+          "R6: cabeceras de navegador + motivo de fallo en pantalla (diagnostico)"
         ]
       },
       "android": {
