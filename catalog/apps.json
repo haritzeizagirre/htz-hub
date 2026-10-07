@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-07T18:00:25.479Z",
+  "updatedAt": "2026-10-07T20:02:26.036Z",
   "apps": [
     {
       "id": "score-viewer",
@@ -12,15 +12,15 @@
       "category": "deportes",
       "badge": "PRINCIPAL",
       "latest": {
-        "version": "2.0.6",
-        "versionCode": 7,
-        "publishedAt": "2026-10-07T18:00:25.477Z",
-        "apkUrl": "https://github.com/haritzeizagirre/htz-scoreviewer/releases/download/v2.0.6/htz-scoreviewer-v2.0.6.apk",
-        "size": 77793024,
-        "sha256": "326115127aef4b8e059033efc759108a5956a67e65db050d1f1f1fb1ebe7a224",
+        "version": "2.0.7",
+        "versionCode": 8,
+        "publishedAt": "2026-10-07T20:02:26.035Z",
+        "apkUrl": "https://github.com/haritzeizagirre/htz-scoreviewer/releases/download/v2.0.7/htz-scoreviewer-v2.0.7.apk",
+        "size": 77818736,
+        "sha256": "a0a2616a6f305b5671c0afa0dfcb82478b3d24dd5cd0753383f8aff612429946",
         "minHubVersion": "1.0.0",
         "changelog": [
-          "R6: modulo nativo HTTP/1.1 para evitar el 103 Early Hints + reintentos"
+          "Banner de busqueda online, modal de detalle de equipo y mejoras de torneos"
         ]
       },
       "android": {
