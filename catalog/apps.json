@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-07T17:05:00.000Z",
+  "updatedAt": "2026-10-07T18:00:25.479Z",
   "apps": [
     {
       "id": "score-viewer",
@@ -12,15 +12,15 @@
       "category": "deportes",
       "badge": "PRINCIPAL",
       "latest": {
-        "version": "2.0.5",
-        "versionCode": 6,
-        "publishedAt": "2026-10-07T17:05:00.000Z",
-        "apkUrl": "https://github.com/haritzeizagirre/htz-scoreviewer/releases/download/v2.0.5/htz-scoreviewer-v2.0.5.apk",
-        "size": 77788636,
-        "sha256": "91f2aa49a8e32d8a625f378e654223c49fccf75ccf6e6f372f5949e210e2c381",
+        "version": "2.0.6",
+        "versionCode": 7,
+        "publishedAt": "2026-10-07T18:00:25.477Z",
+        "apkUrl": "https://github.com/haritzeizagirre/htz-scoreviewer/releases/download/v2.0.6/htz-scoreviewer-v2.0.6.apk",
+        "size": 77793024,
+        "sha256": "326115127aef4b8e059033efc759108a5956a67e65db050d1f1f1fb1ebe7a224",
         "minHubVersion": "1.0.0",
         "changelog": [
-          "R6: cabeceras de navegador + motivo de fallo en pantalla (diagnostico)"
+          "R6: modulo nativo HTTP/1.1 para evitar el 103 Early Hints + reintentos"
         ]
       },
       "android": {
