@@ -455,7 +455,9 @@ Flujo del usuario tras cambiar una app:
 
 ### Fase 5 — Extras
 - [ ] `expo-updates` en Score Viewer para parches OTA.
-- [ ] Módulo nativo de versión exacta (Fase 7.6 opcional).
+- [x] Módulo nativo de versión exacta: `hub-app/modules/htz-package-info` lee `versionName`/`versionCode`
+      del paquete instalado → el Hub muestra "Actualizar" aunque la app se instalara **fuera** del Hub.
+- [x] Botón de acción del Hub: **Descargar/Actualizar** instala; la tarjeta abre la app.
 - [ ] Extraer `@htz/ui` como paquete compartido (monorepo) si se prevén más apps.
 - [ ] Desinstalar apps desde el Hub (`ACTION_DELETE`).
 - [ ] Firma/verificación del catálogo (opcional, para más seguridad).
@@ -492,3 +494,20 @@ Flujo del usuario tras cambiar una app:
    "Actualizar" e instalar la nueva versión encima de la anterior.
 6. **Actualización OTA:** cambiar solo JS, `eas update`; al abrir la app debe tener el
    cambio sin reinstalar.
+
+---
+
+## 12. Identidad visual (branding)
+
+Sistema **"Orbit"**: un anillo + nodos en degradado verde sage sobre fondo oscuro (#1E2420).
+Cada app es una variación del mismo símbolo → familia visual coherente:
+
+| App | Marca | Iconos |
+| --- | --- | --- |
+| Hub | anillo + **1 nodo** | `hub-app/assets/` |
+| Score Viewer | anillo + **2 nodos** | `apps/score-viewer/assets/` |
+| (apps futuras) | anillo + N nodos | — |
+
+- Fuentes SVG y generador: `hub-app/branding/` (`generate-assets.cjs`).
+- Se generan: `icon.png` (1024), `android-icon-foreground/background/monochrome.png`, `favicon.png`.
+- Los iconos van **horneados en el APK**: hay que recompilar tras cambiarlos.
