@@ -45,7 +45,7 @@ const ACTION_LABELS: Record<AppInstallState, string> = {
 };
 
 export const AppCard: React.FC<AppCardProps> = ({ app, onPress }) => {
-  const { colors, isFavorite, toggleFavorite, appStates, appIcons } = useHub();
+  const { colors, isFavorite, toggleFavorite, appStates, appIcons, installApp } = useHub();
   const fav = isFavorite(app.id);
 
   // Las apps internas siempre están "listas"; las externas dependen del estado.
@@ -53,6 +53,20 @@ export const AppCard: React.FC<AppCardProps> = ({ app, onPress }) => {
     app.source === 'external' ? appStates[app.id] ?? 'not-installed' : 'installed';
   const disabled = state === 'installing' || state === 'incompatible';
   const realIcon = appIcons[app.id];
+
+  /**
+   * Acción del botón del pie:
+   *  - Si hay que descargar/actualizar, instala (no abre la app).
+   *  - Si ya está instalada, abre la app.
+   */
+  const handleAction = () => {
+    if (disabled) return;
+    if (state === 'not-installed' || state === 'update-available') {
+      installApp(app);
+    } else {
+      onPress();
+    }
+  };
 
   const renderActionIcon = () => {
     if (state === 'installing') {
@@ -141,7 +155,19 @@ export const AppCard: React.FC<AppCardProps> = ({ app, onPress }) => {
           </Text>
         </View>
 
-        <View style={styles.openAction}>
+        <TouchableOpacity
+          style={[
+            styles.openAction,
+            {
+              backgroundColor: `${app.accentColor}14`,
+              borderColor: `${app.accentColor}33`,
+            },
+          ]}
+          onPress={handleAction}
+          disabled={disabled}
+          activeOpacity={0.7}
+          hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+        >
           <Text
             style={[
               styles.openActionText,
@@ -151,7 +177,7 @@ export const AppCard: React.FC<AppCardProps> = ({ app, onPress }) => {
             {ACTION_LABELS[state]}
           </Text>
           {renderActionIcon()}
-        </View>
+        </TouchableOpacity>
       </View>
     </HtzCard>
   );
@@ -234,6 +260,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 4,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 999,
+    borderWidth: 1,
   },
   openActionText: {
     fontSize: 13,
