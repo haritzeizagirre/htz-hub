@@ -6,6 +6,7 @@ import { HubStorage } from '../storage/hubStorage';
 import { AppRegistry } from '../apps/registry';
 import { CatalogService } from '../catalog/catalogService';
 import { getAppIcon, openExternalApp, installExternalApp } from '../apps/launcherService';
+import { getPackageInfo } from '../../modules/htz-package-info/src/HtzPackageInfoModule';
 import { HUB_VERSION } from '../config';
 
 interface HubContextType {
@@ -54,19 +55,25 @@ export const HubProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [appIcons, setAppIcons] = useState<Record<string, string>>({});
   const [installing, setInstalling] = useState<Record<string, boolean>>({});
 
-  /** Detecta apps externas instaladas y recupera su icono real (Android). */
+  /** Detecta apps externas instaladas, su versión real y su icono (Android). */
   const detectInstalled = useCallback(async (apps: CatalogApp[]) => {
     const flags: Record<string, boolean> = {};
     const icons: Record<string, string> = {};
+    const versions: Record<string, string> = {};
     await Promise.all(
       apps.map(async (app) => {
+        // Versión real instalada vía módulo nativo. Si el módulo no está
+        // disponible, caemos a la detección por icono (sin versión).
+        const info = getPackageInfo(app.android.package);
         const icon = await getAppIcon(app.android.package);
-        flags[app.id] = icon !== null;
+        flags[app.id] = info !== null || icon !== null;
         if (icon) icons[app.id] = icon;
+        if (info && info.versionName) versions[app.id] = info.versionName;
       }),
     );
     setInstalledFlags(flags);
     setAppIcons(icons);
+    setInstalledVersions((prev) => ({ ...prev, ...versions }));
   }, []);
 
   const bootstrap = useCallback(async () => {
