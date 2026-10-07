@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-07T20:02:26.036Z",
+  "updatedAt": "2026-10-07T20:53:02.784Z",
   "apps": [
     {
       "id": "score-viewer",
@@ -12,15 +12,15 @@
       "category": "deportes",
       "badge": "PRINCIPAL",
       "latest": {
-        "version": "2.0.7",
-        "versionCode": 8,
-        "publishedAt": "2026-10-07T20:02:26.035Z",
-        "apkUrl": "https://github.com/haritzeizagirre/htz-scoreviewer/releases/download/v2.0.7/htz-scoreviewer-v2.0.7.apk",
-        "size": 77818736,
-        "sha256": "a0a2616a6f305b5671c0afa0dfcb82478b3d24dd5cd0753383f8aff612429946",
+        "version": "2.0.8",
+        "versionCode": 9,
+        "publishedAt": "2026-10-07T20:53:02.783Z",
+        "apkUrl": "https://github.com/haritzeizagirre/htz-scoreviewer/releases/download/v2.0.8/htz-scoreviewer-v2.0.8.apk",
+        "size": 77820852,
+        "sha256": "d94f6af37deed0e1c9c3a1ab95331bce7e6f8f1a7c91e542bd4d6067449d3413",
         "minHubVersion": "1.0.0",
         "changelog": [
-          "Banner de busqueda online, modal de detalle de equipo y mejoras de torneos"
+          "Cambio de pestana mas rapido, esquinas redondeadas corregidas en Android y chips de deportes unificados"
         ]
       },
       "android": {
