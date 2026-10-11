@@ -11,6 +11,7 @@ interface CategoryFilterProps {
 const CATEGORIES: { key: AppCategory; label: string }[] = [
   { key: 'todas', label: 'Todas' },
   { key: 'deportes', label: 'Deportes' },
+  { key: 'juegos', label: 'Juegos' },
   { key: 'utilidades', label: 'Utilidades' },
   { key: 'herramientas', label: 'Herramientas' },
   { key: 'laboratorio', label: 'Laboratorio' },

@@ -11,6 +11,7 @@ import {
   Download,
   RefreshCw,
   AlertTriangle,
+  Lamp,
 } from 'lucide-react-native';
 import { AppInstallState, LauncherApp } from '../types';
 import { useHub } from '../context/HubContext';
@@ -31,6 +32,8 @@ const renderAppIcon = (iconName: string, color: string, size: number = 24) => {
       return <Wrench size={size} color={color} />;
     case 'Activity':
       return <Activity size={size} color={color} />;
+    case 'Lamp':
+      return <Lamp size={size} color={color} />;
     default:
       return <Layers size={size} color={color} />;
   }

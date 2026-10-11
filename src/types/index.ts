@@ -2,7 +2,7 @@ import React from 'react';
 
 export type ThemeMode = 'dark' | 'light' | 'oled' | 'sage';
 
-export type AppCategory = 'todas' | 'deportes' | 'utilidades' | 'herramientas' | 'laboratorio';
+export type AppCategory = 'todas' | 'deportes' | 'juegos' | 'utilidades' | 'herramientas' | 'laboratorio';
 
 export interface SubAppStorage {
   get: <T = string>(key: string, defaultValue?: T) => Promise<T | null>;
