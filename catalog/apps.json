@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-11T22:30:00.000Z",
+  "updatedAt": "2026-10-11T22:04:42.000Z",
   "apps": [
     {
       "id": "score-viewer",
@@ -38,15 +38,16 @@
       "category": "juegos",
       "badge": "NUEVO",
       "latest": {
-        "version": "1.0.0",
-        "versionCode": 1,
-        "publishedAt": "2026-10-11T22:27:00.000Z",
-        "apkUrl": "https://github.com/haritzeizagirre/no-apagues-la-luz/releases/download/v1.0.0/no-apagues-la-luz-v1.0.0.apk",
-        "size": 1251372,
-        "sha256": "b5bfc731e1143c5a74022aa76375632f84b9f71aa28f0dc789dac6acffacf80b",
+        "version": "1.1.0",
+        "versionCode": 2,
+        "publishedAt": "2026-10-11T22:04:42.000Z",
+        "apkUrl": "https://github.com/haritzeizagirre/no-apagues-la-luz/releases/download/v1.1.0/no-apagues-la-luz-v1.1.0.apk",
+        "size": 45494299,
+        "sha256": "80244cfe3c3df00057a5271234b22177f1b8c7954757d957da810f6593a955c0",
         "minHubVersion": "1.0.0",
         "changelog": [
-          "Primera versión Android (pantalla completa en horizontal, funciona offline tras la primera partida)"
+          "App Android independiente: el juego va dentro del APK (WebView nativo). Ya no abre el navegador ni necesita internet.",
+          "Pantalla completa horizontal, controles táctiles y audio"
         ]
       },
       "android": {
