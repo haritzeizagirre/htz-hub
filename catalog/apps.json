@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-11T22:04:42.000Z",
+  "updatedAt": "2026-10-12T20:27:18.703Z",
   "apps": [
     {
       "id": "score-viewer",
@@ -12,15 +12,15 @@
       "category": "deportes",
       "badge": "PRINCIPAL",
       "latest": {
-        "version": "2.0.10",
-        "versionCode": 11,
-        "publishedAt": "2026-10-08T20:48:08.697Z",
-        "apkUrl": "https://github.com/haritzeizagirre/htz-scoreviewer/releases/download/v2.0.10/htz-scoreviewer-v2.0.10.apk",
-        "size": 79418459,
-        "sha256": "14ffdea9b9c7e5f73aae0636e9730942289ab4200550147139d4aba6d9955e2e",
+        "version": "2.0.11",
+        "versionCode": 12,
+        "publishedAt": "2026-10-12T20:27:18.702Z",
+        "apkUrl": "https://github.com/haritzeizagirre/htz-scoreviewer/releases/download/v2.0.11/htz-scoreviewer-v2.0.11.apk",
+        "size": 79443696,
+        "sha256": "0b84e1fe8f17b8f120deceadbc7605f6d6dc1837d8dccd28f12d4f67d80d77f6",
         "minHubVersion": "1.0.0",
         "changelog": [
-          "Bugs de torneos de R6 arreglado y mejoras en como aparecen los marcadores de valorant"
+          "Mejoras en notificaciones y en la configuracion de las mismas"
         ]
       },
       "android": {
