@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-13T20:57:46.722Z",
+  "updatedAt": "2026-10-13T21:08:17.138Z",
   "apps": [
     {
       "id": "score-viewer",
@@ -65,15 +65,15 @@
       "category": "utilidades",
       "badge": "NUEVO",
       "latest": {
-        "version": "1.1.1",
-        "versionCode": 3,
-        "publishedAt": "2026-10-13T20:34:47.334Z",
-        "apkUrl": "https://github.com/haritzeizagirre/htz-playlistcleaner/releases/download/v1.1.1/htz-playlistcleaner-v1.1.1.apk",
-        "size": 116682978,
-        "sha256": "e982185a0b546dd85db24260df07c7202ec2d154b856e7cdf40310d01f610fb6",
+        "version": "1.1.2",
+        "versionCode": 4,
+        "publishedAt": "2026-10-13T21:08:17.138Z",
+        "apkUrl": "https://github.com/haritzeizagirre/htz-playlistcleaner/releases/download/v1.1.2/htz-playlistcleaner-v1.1.2.apk",
+        "size": 116685230,
+        "sha256": "438284afa853382442214983074110e56a8c994c15682f3b9907869ac14a2938",
         "minHubVersion": "1.0.0",
         "changelog": [
-          "Resolucion de previews multi-fuente (Deezer + iTunes) con limpieza de titulos: la gran mayoria de canciones suenan ya (incluidas NCS tipo Alex Skrindo). El reproductor de YouTube queda como ultimo recurso."
+          "Finalizar en cualquier momento: confirma lo que hayas marcado sin recorrer toda la playlist (lo no revisado se mantiene tal cual). Las tarjetas ahora aparecen en orden aleatorio."
         ]
       },
       "android": {
