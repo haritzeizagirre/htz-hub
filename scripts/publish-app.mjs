@@ -43,6 +43,13 @@ const APPS = {
     title: 'Score Viewer Pro',
     assetName: (v) => `htz-scoreviewer-v${v}.apk`,
   },
+  'playlist-cleaner': {
+    // Proyecto independiente, fuera de este workspace.
+    projectDir: 'C:/VSCode/playlist_cleaner',
+    repo: 'haritzeizagirre/htz-playlistcleaner',
+    title: 'Playlist Cleaner',
+    assetName: (v) => `htz-playlistcleaner-v${v}.apk`,
+  },
 };
 
 const args = process.argv.slice(2);
