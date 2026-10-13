@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-13T20:16:08.831Z",
+  "updatedAt": "2026-10-13T20:20:28.054Z",
   "apps": [
     {
       "id": "score-viewer",
@@ -12,15 +12,15 @@
       "category": "deportes",
       "badge": "PRINCIPAL",
       "latest": {
-        "version": "2.0.11",
-        "versionCode": 12,
-        "publishedAt": "2026-10-12T20:27:18.702Z",
-        "apkUrl": "https://github.com/haritzeizagirre/htz-scoreviewer/releases/download/v2.0.11/htz-scoreviewer-v2.0.11.apk",
-        "size": 79443696,
-        "sha256": "0b84e1fe8f17b8f120deceadbc7605f6d6dc1837d8dccd28f12d4f67d80d77f6",
+        "version": "2.0.12",
+        "versionCode": 13,
+        "publishedAt": "2026-10-13T20:20:28.054Z",
+        "apkUrl": "https://github.com/haritzeizagirre/htz-scoreviewer/releases/download/v2.0.12/htz-scoreviewer-v2.0.12.apk",
+        "size": 79471240,
+        "sha256": "09df2b1cfbf890f4d15d29658d577626d7edf7b5faa564c3ced5a89b98ba5fcd",
         "minHubVersion": "1.0.0",
         "changelog": [
-          "Mejoras en notificaciones y en la configuracion de las mismas"
+          "Stats de futbol (minuto, goles, tarjetas, cambios y alineaciones) y avisos R6 con el tanteo real de cada mapa"
         ]
       },
       "android": {
