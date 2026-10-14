@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-13T21:23:34.844Z",
+  "updatedAt": "2026-10-14T20:49:06.980Z",
   "apps": [
     {
       "id": "score-viewer",
@@ -65,15 +65,15 @@
       "category": "utilidades",
       "badge": "NUEVO",
       "latest": {
-        "version": "1.1.3",
-        "versionCode": 5,
-        "publishedAt": "2026-10-13T21:23:34.844Z",
-        "apkUrl": "https://github.com/haritzeizagirre/htz-playlistcleaner/releases/download/v1.1.3/htz-playlistcleaner-v1.1.3.apk",
-        "size": 116684822,
-        "sha256": "f489f9b6e43a0e2a031c0a0cdf684787bfaacbd3b6804adb6f5e4af8f7d64299",
+        "version": "1.1.4",
+        "versionCode": 6,
+        "publishedAt": "2026-10-14T20:49:06.980Z",
+        "apkUrl": "https://github.com/haritzeizagirre/htz-playlistcleaner/releases/download/v1.1.4/htz-playlistcleaner-v1.1.4.apk",
+        "size": 116541614,
+        "sha256": "d0f486cc76ab300c469961d62187263f48948f28deef730cca0972e8048475cb",
         "minHubVersion": "1.0.0",
         "changelog": [
-          "Resolver: limpieza de corchetes en el titulo extraido y candidatos sin parentesis (arregla casos tipo 'Rival x Lost Sky - Where You Are (w/ Jex) [Official Lyric Video]')."
+          "🖼️ Icono nuevo (tarjeta + nota) · 🎵 YouTube: alterna entre preview de 30 s y canción completa · 💡 Canciones parecidas por artistas semilla · ⚡ Precarga de la siguiente canción (sin parones) y deck más fluido"
         ]
       },
       "android": {
