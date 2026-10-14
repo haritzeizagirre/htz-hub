@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-14T20:49:06.980Z",
+  "updatedAt": "2026-10-14T21:03:19.351Z",
   "apps": [
     {
       "id": "score-viewer",
@@ -12,15 +12,15 @@
       "category": "deportes",
       "badge": "PRINCIPAL",
       "latest": {
-        "version": "2.0.13",
-        "versionCode": 14,
-        "publishedAt": "2026-10-13T20:57:46.722Z",
-        "apkUrl": "https://github.com/haritzeizagirre/htz-scoreviewer/releases/download/v2.0.13/htz-scoreviewer-v2.0.13.apk",
-        "size": 79491088,
-        "sha256": "35b7cb6a5d2a1176fc0c6de1676846ee78c0afb8895657ff93bef0d0b041621a",
+        "version": "2.0.15",
+        "versionCode": 16,
+        "publishedAt": "2026-10-14T21:03:19.351Z",
+        "apkUrl": "https://github.com/haritzeizagirre/htz-scoreviewer/releases/download/v2.0.15/htz-scoreviewer-v2.0.15.apk",
+        "size": 79525588,
+        "sha256": "d83ebeda5a2e5ade4e77f316d4c5e44f7b53b6b845991cdd6b9636782fc2aa08",
         "minHubVersion": "1.0.0",
         "changelog": [
-          "Stats de futbol reales con FotMob: minuto en directo, goles, tarjetas, cambios y alineaciones, y marcador en vivo en la lista"
+          "Ficha de fútbol por páginas: Resumen (minuto y cronología con cada equipo desde su lado y escudos), Alineaciones (campo con jugadores en su posición, valoraciones, goles, asistencias y tarjetas, más bajas) y Estadísticas comparadas. Arreglados los solapamientos del campo y los avisos de inicio son más puntuales."
         ]
       },
       "android": {
