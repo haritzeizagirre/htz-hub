@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-15T20:15:45.029Z",
+  "updatedAt": "2026-10-15T20:36:53.814Z",
   "apps": [
     {
       "id": "score-viewer",
@@ -65,15 +65,15 @@
       "category": "utilidades",
       "badge": "NUEVO",
       "latest": {
-        "version": "1.1.4",
-        "versionCode": 6,
-        "publishedAt": "2026-10-14T20:49:06.980Z",
-        "apkUrl": "https://github.com/haritzeizagirre/htz-playlistcleaner/releases/download/v1.1.4/htz-playlistcleaner-v1.1.4.apk",
-        "size": 116541614,
-        "sha256": "d0f486cc76ab300c469961d62187263f48948f28deef730cca0972e8048475cb",
+        "version": "1.1.5",
+        "versionCode": 7,
+        "publishedAt": "2026-10-15T20:36:53.814Z",
+        "apkUrl": "https://github.com/haritzeizagirre/htz-playlistcleaner/releases/download/v1.1.5/htz-playlistcleaner-v1.1.5.apk",
+        "size": 116560482,
+        "sha256": "a6ef775ebbe845d90cdb9b6e6b2d30b79c072bd2b483b95764798f5ce282ec0b",
         "minHubVersion": "1.0.0",
         "changelog": [
-          "🖼️ Icono nuevo (tarjeta + nota) · 🎵 YouTube: alterna entre preview de 30 s y canción completa · 💡 Canciones parecidas por artistas semilla · ⚡ Precarga de la siguiente canción (sin parones) y deck más fluido"
+          "Reproducir en canciones sugeridas y canciones completas"
         ]
       },
       "android": {
