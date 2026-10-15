@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-15T20:36:53.814Z",
+  "updatedAt": "2026-10-15T20:47:30.619Z",
   "apps": [
     {
       "id": "score-viewer",
@@ -12,15 +12,15 @@
       "category": "deportes",
       "badge": "PRINCIPAL",
       "latest": {
-        "version": "2.0.16",
-        "versionCode": 17,
-        "publishedAt": "2026-10-15T20:15:45.029Z",
-        "apkUrl": "https://github.com/haritzeizagirre/htz-scoreviewer/releases/download/v2.0.16/htz-scoreviewer-v2.0.16.apk",
-        "size": 79544608,
-        "sha256": "8abc5d362ceb8054488d3434eed3acb4b2b224dbe373aaa80ca87bcc2d031f9d",
+        "version": "2.0.17",
+        "versionCode": 18,
+        "publishedAt": "2026-10-15T20:47:30.619Z",
+        "apkUrl": "https://github.com/haritzeizagirre/htz-scoreviewer/releases/download/v2.0.17/htz-scoreviewer-v2.0.17.apk",
+        "size": 79548884,
+        "sha256": "af0d1fb46bc89e2ee265ba7acbc37bb8ea579a904574db3182065627dbcf88fd",
         "minHubVersion": "1.0.0",
         "changelog": [
-          "Solución de problemas en las paginas de torneos y los equipos favoritos"
+          "Europa League, Conference League y otras competiciones fuera del plan de Football-Data ya muestran partidos y clasificación reales (respaldo con FotMob, sin token). Los torneos sin datos en vivo muestran la clasificación real en vez de la de ejemplo."
         ]
       },
       "android": {
